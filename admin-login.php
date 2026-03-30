@@ -1,7 +1,13 @@
 <?php
 session_start();
 
-// Already logged in as admin? Go to dashboard
+// If logged in as USER, redirect to home — not allowed here
+if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+    header('Location: index.php');
+    exit();
+}
+
+// If already logged in as ADMIN, go to dashboard
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header('Location: admin.php');
     exit();
@@ -15,13 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Hardcoded credentials
-    $hardcoded_username = 'phoenix';
-    $hardcoded_password = 'phoenix@123';
+    $adminUser = 'phoenix';
+    $adminPass = 'admin123';
 
-    if ($username === $hardcoded_username && $password === $hardcoded_password) {
+    if ($username === $adminUser && $password === $adminPass) {
         $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_id'] = 1; // just a dummy ID
         header('Location: admin.php');
         exit();
     } else {
