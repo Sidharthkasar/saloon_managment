@@ -1,0 +1,80 @@
+.main-navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 60px;
+    background:linear-gradient(90deg,#0f1b2e,#16253d);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+}
+
+.logo-img{
+    width:45px;
+    margin-right:10px;
+}
+
+.brand-text h2{
+    margin:0;
+    color:#ffffff;
+    letter-spacing:2px;
+}
+
+.brand-text span{
+    font-size:13px;
+    color:#ff4fa3;
+}
+
+.nav-center a{
+    margin:0 18px;
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    position:relative;
+    transition:0.3s;
+}
+
+.nav-center a:hover{
+    color:#ff4fa3;
+}
+
+.nav-center .active{
+    color:#ff4fa3;
+}
+
+.nav-center .active::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:#ff4fa3;
+    left:0;
+    bottom:-6px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+}
+
+.search-box{
+    padding:8px 15px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    background:#2a3a55;
+    color:white;
+    margin-right:15px;
+}
+
+.admin-icon img{
+    width:35px;
+    border-radius:50%;
+    border:2px solid #ff4fa3;
+    padding:5px;
+}
