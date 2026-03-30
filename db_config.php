@@ -1,12 +1,6 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "phoenix_salon";
-
-$conn = mysqli_connect($host, $user, $pass, $dbname);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+$conn = new mysqli("localhost", "root", "", "phoenix_salon");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
